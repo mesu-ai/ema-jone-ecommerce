@@ -1,0 +1,16 @@
+.product{
+    
+
+    margin: 10px;
+    background-color: blanchedalmond;
+    border:3px solid crimson;
+    border-radius: 10px;
+    padding: 10px;
+}
+.product-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}

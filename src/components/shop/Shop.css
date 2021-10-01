@@ -1,0 +1,10 @@
+.shop-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.cart-container{
+    /* background-color: wheat; */
+    border-left:1px solid black;
+
+}
