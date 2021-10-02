@@ -1,29 +1,22 @@
-import './Product.css';
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { removeFromLocalStorage } from '../../utilities/LocalStorage';
 import Feature from '../feature/Feature';
 
+const OrderItem = (props) => {
+    // console.log(props.product);
+    const {img,name,seller,quantity,stock,price,features,key}=props.product;
+    const {removeHandler} =props;
 
-
-const Product = (props) => {
-   // console.log(props);
-
-   const {img,name,seller,stock,price,star,features}=props.product;
-   const element = <FontAwesomeIcon icon={faShoppingCart} />
-
-
-   const textStyle={
-    paddingTop:'0px',
-    paddingBottom:'0px',
-    marginTop:'0px',
-    marginBottom:'0px'
-}
-
+    const textStyle={
+        paddingTop:'0px',
+        paddingBottom:'0px',
+        marginTop:'0px',
+        marginBottom:'0px'
+    }
+    
     return (
-        
-        
-            <div className="product-details product">
+
+        <div className="product-details product">
            
             <div>
                 <img src={img} alt="" />
@@ -43,12 +36,13 @@ const Product = (props) => {
 
                         <h3 style={textStyle}>$ {price}</h3>
                         <p>Only {stock} left in stock - order soon</p>
-                        <button onClick={()=>props.handleAddtoCart(props.product)}>{element}  Add to Cart</button>
+                        
+                        <button onClick={()=>removeHandler(key)}>Remove From Cart</button>
 
                     </div>
 
                     <div>
-                        <p>{star}</p>
+                        <p>Ordered Quantity: {quantity}</p>
                         <h3 style={textStyle}>Feature:</h3>
                         <ul>{features.map(feature=> <li><Feature key={Math.random()} feature={feature}></Feature></li>)}</ul>  
                     </div>
@@ -57,8 +51,7 @@ const Product = (props) => {
             </div>
 
             </div>
-            
     );
 };
 
-export default Product;
+export default OrderItem;

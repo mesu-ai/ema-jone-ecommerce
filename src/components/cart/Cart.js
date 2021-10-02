@@ -3,7 +3,7 @@ import React from 'react';
 
 const Cart = (props) => {
   // console.log(props.cart);
-    let { cart }=props;
+    let {cart}= props;
 
     let total= 0;
     let totalQuantity=0;
